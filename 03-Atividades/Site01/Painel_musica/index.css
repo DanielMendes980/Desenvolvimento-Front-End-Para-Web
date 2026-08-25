@@ -1,0 +1,35 @@
+body{
+    text-align: center;
+}
+    #text{
+    color: rebeccapurple;
+    text-align: center;
+}
+#titulo{
+    color: red;
+    text-align: center;
+}
+#subtitulo{
+    color: blue;
+}
+#rodape{
+    color: black;
+}
+#fala {
+    justify-content: center;
+    align-items: center;    
+
+    width: 300px; /* Largura do conteúdo */
+    padding: 20px; /* Espaço interno ao redor do conteúdo */
+    border: 5px solid black; /* Borda ao redor do preenchimento */
+    margin: 10px auto; /* Espaço externo entre elementos */
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+h1{
+    color: black;
+    cursor: pointer;
+}
+
+

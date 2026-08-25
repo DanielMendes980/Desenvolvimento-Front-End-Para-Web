@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Aula03</title>
+</head>
+<body>
+    <div id="titulo">
+    <h1  title="Titulo feio">Aula03</h1>
+    <audio id="player">
+     <source src="Symphony no. 5 in Cm, Op. 67 - I. Allegro con brio (For Recorder Ensemble - Papalin).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="controls">
+        <button onclick="playAudio()">▶ Play</button>
+        <button onclick="resetAudio()">🔄 Reset</button>
+        <button onclick="volumeUp()">🔊 Volume +</button>
+        <button onclick="volumeDown()">🔉 Volume -</button>
+     </div>
+    </div>
+
+    <p id="text"></p>
+    <hr/>
+    <div id="input">
+    <input type="text" id="text-input">
+    <input type="button" onclick="insertText()" value="inserir texto">
+    <input type="button" onclick="removeText()" value="tirar texto">
+    </div>    
+    <div id="fala">
+        <h1 title="para respostas do sistema">Caixa de mensagens</h1>
+        <h2 id="subtitulo"></h2>
+        <h3 id="rodape"></h3>
+    </div >
+
+
+    <script src="index.js"></script>
+</body>
+</html>

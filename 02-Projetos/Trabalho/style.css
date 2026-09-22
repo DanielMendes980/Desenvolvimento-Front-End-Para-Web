@@ -1,0 +1,100 @@
+/* Remove margens e espaçamentos padrões do navegador */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Configura o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Estiliza o cabeçalho */
+header {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* 
+   Organiza as duas seções lado a lado.
+   O display: flex é obrigatório no projeto.
+*/
+main {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Estiliza cada seção */
+section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+
+    /* Faz as duas seções ocuparem espaços proporcionais */
+    flex: 1;
+}
+
+/* Espaçamento do título */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* 
+   Organiza os elementos do formulário
+   um abaixo do outro.
+*/
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estiliza os campos de texto */
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Define uma altura mínima para a descrição */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Estiliza o botão */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+}
+
+/* Muda a aparência do botão quando o mouse passa sobre ele */
+button:hover {
+    background-color: #444;
+}
+
+/* 
+   Responsividade:
+   quando a tela for menor que 700px,
+   as seções ficam uma abaixo da outra.
+*/
+@media (max-width: 700px) {
+
+    main {
+        flex-direction: column;
+    }
+
+}

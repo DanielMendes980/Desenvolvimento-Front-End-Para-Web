@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Define a codificação de caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Faz o site se adaptar a celulares e diferentes telas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Chamado Técnico</title>
+
+    <!-- Conecta o arquivo CSS ao HTML -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho do sistema -->
+    <header>
+
+        <!-- Título principal -->
+        <h1>Chamado Técnico</h1>
+
+        <!-- Pequena descrição do sistema -->
+        <p>Bem-vindo ao sistema de chamados técnicos!</p>
+
+    </header>
+
+    <!-- Conteúdo principal da página -->
+    <main>
+
+        <!-- Seção responsável pelo cadastro do chamado -->
+        <section>
+
+            <h2>Abrir Chamado</h2>
+
+            <!-- Formulário para cadastrar um novo chamado -->
+            <form id="formChamado">
+
+                <!-- Campo para informar o nome do funcionário -->
+                <label for="funcionario">Nome do funcionário:</label>
+                <input type="text" id="funcionario" required>
+
+                <!-- Campo para informar o equipamento -->
+                <label for="equipamento">Equipamento:(se não souber, deixar vazio)</label>
+                <input type="text" id="equipamento" >
+
+                <!-- Campo para informar o ID -->
+                <label for="id">ID:(Tá escrito na parte de cima)</label>
+                <input type="text" id="id" required>
+
+                <!-- Campo para descrever o problema -->
+                <label for="problema">Problema:</label>
+                <textarea id="problema" required></textarea>
+
+                <!-- Botão para enviar o formulário -->
+                <button type="submit">Abrir Chamado</button>
+
+            </form>
+
+        </section>
+
+        <!-- Seção onde os chamados cadastrados serão exibidos -->
+        <section>
+
+            <h2>Chamados</h2>
+
+            <!-- O JavaScript irá colocar os chamados aqui -->
+            <div id="listaChamados">
+
+                <!-- Mensagem inicial enquanto não houver chamados -->
+                <p>Nenhum chamado cadastrado.</p>
+
+            </div>
+
+        </section>
+    </main>
+    <img src="image.jpg" alt="Descrição da imagem">
+
+    <!-- Conecta o arquivo JavaScript ao HTML -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

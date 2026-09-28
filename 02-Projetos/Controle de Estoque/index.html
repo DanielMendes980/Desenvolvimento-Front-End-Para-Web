@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- Define a codificação de caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Faz o site se adaptar a celulares e diferentes telas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Controle de Estoque</title>
+
+    <!-- Ícone da loja -->
+    <link rel="icon" href="assets/ChatGPT.png" type="image/png">
+
+    <!-- Conecta o arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header>
+
+        <!-- Logo da loja -->
+        <img
+            src="assets/ChatGPT.png"
+            alt="Logo da loja"
+            class="logo"
+        >
+
+        <!-- Título principal -->
+        <h1>Controle de Estoque</h1>
+
+        <!-- Descrição -->
+        <p>
+            Bem-vindo ao sistema de controle de estoque!
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             CADASTRO DE PRODUTO
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>Cadastrar Produto</h2>
+
+
+            <!-- Formulário -->
+            <form id="formChamado">
+
+
+                <!-- ID do produto -->
+                <label for="Id">
+                    ID do produto:
+                </label>
+
+                <input
+                    type="text"
+                    id="Id"
+                    required
+                >
+
+
+                <!-- Nome do produto -->
+                <label for="Item">
+                    Nome do Item:
+                </label>
+
+                <input
+                    type="text"
+                    id="Item"
+                    required
+                >
+
+
+                <!-- Categoria -->
+                <label for="categoria">
+                    Categoria:
+                </label>
+
+                <input
+                    type="text"
+                    id="categoria"
+                    required
+                >
+
+
+                <!-- Preço -->
+                <label for="preço">
+                    Preço:
+                </label>
+
+                <input
+                    type="number"
+                    id="preço"
+                    step="0.01"
+                    min="0"
+                    required
+                >
+
+
+                <!-- Quantidade -->
+                <label for="quantidade">
+                    Quantidade:
+                </label>
+
+                <input
+                    type="number"
+                    id="quantidade"
+                    min="0"
+                    required
+                >
+
+
+                <!-- Descrição -->
+                <label for="descrição">
+                    Descrição:
+                </label>
+
+                <input
+                    type="text"
+                    id="descrição"
+                    required
+                >
+
+
+                <!-- Botão cadastrar -->
+                <button type="submit">
+                    Cadastrar Produto
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LISTA DE PRODUTOS
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>Produtos</h2>
+
+
+            <!-- Os produtos aparecem aqui -->
+            <div id="listaChamados"></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HISTÓRICO
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>Histórico de Produtos</h2>
+
+
+            <!-- As entradas e saídas aparecem aqui -->
+            <div id="listaHistorico">
+
+                <p>
+                    Nenhum produto no histórico.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Conecta o JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

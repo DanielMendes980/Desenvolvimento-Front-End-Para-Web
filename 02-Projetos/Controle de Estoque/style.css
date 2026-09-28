@@ -1,0 +1,406 @@
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #f1f1f1;
+
+    color: #222;
+}
+
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+header {
+
+    background-color: #222;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 15px 20px 25px;
+}
+
+
+.logo {
+
+    width: 65px;
+
+    height: 65px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 5px;
+}
+
+
+header h1 {
+
+    margin: 5px 0;
+
+    font-size: 30px;
+}
+
+
+header p {
+
+    margin: 0;
+
+    font-size: 16px;
+}
+
+
+
+/* =====================================================
+   ÁREA PRINCIPAL
+===================================================== */
+
+main {
+
+    display: flex;
+
+    gap: 28px;
+
+    max-width: 1450px;
+
+    margin: 45px auto;
+
+    padding: 0 25px;
+
+    align-items: flex-start;
+}
+
+
+
+/* =====================================================
+   BLOCOS
+===================================================== */
+
+.card {
+
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ddd;
+
+    flex: 1;
+
+    min-height: 600px;
+
+    min-width: 0;
+}
+
+
+.card h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 24px;
+}
+
+
+
+/* =====================================================
+   FORMULÁRIO
+===================================================== */
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+form label {
+
+    margin-bottom: 6px;
+
+    font-size: 15px;
+}
+
+
+form input {
+
+    width: 100%;
+
+    padding: 11px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+}
+
+
+form input:focus {
+
+    outline: none;
+
+    border-color: #222;
+}
+
+
+form button {
+
+    background-color: #222;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 5px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+}
+
+
+form button:hover {
+
+    background-color: #444;
+}
+
+
+
+/* =====================================================
+   PRODUTOS
+===================================================== */
+
+.produto {
+
+    border-bottom: 1px solid #aaa;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 10px;
+}
+
+
+.produto h3 {
+
+    margin: 0 0 5px;
+
+    font-size: 18px;
+}
+
+
+.produto p {
+
+    margin: 3px 0;
+
+    font-size: 14px;
+}
+
+
+
+/* =====================================================
+   BOTÕES DOS PRODUTOS
+===================================================== */
+
+.botoes {
+
+    display: flex;
+
+    gap: 6px;
+
+    margin-top: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+.botoes button {
+
+    border: none;
+
+    border-radius: 5px;
+
+    padding: 9px 12px;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+/* Botão adicionar */
+
+.btn-adicionar {
+
+    background-color: #198754;
+}
+
+
+/* Botão retirar */
+
+.btn-retirar {
+
+    background-color: #dc3545;
+}
+
+
+/* Botão excluir */
+
+.btn-excluir {
+
+    background-color: #222;
+}
+
+
+.botoes button:hover {
+
+    opacity: 0.8;
+}
+
+
+
+/* =====================================================
+   STATUS DO PRODUTO
+===================================================== */
+
+.status {
+
+    font-weight: bold;
+}
+
+
+.em-estoque {
+
+    color: #198754;
+}
+
+
+.esgotado {
+
+    color: #dc3545;
+}
+
+
+
+/* =====================================================
+   HISTÓRICO
+===================================================== */
+
+.movimentacao {
+
+    border-bottom: 1px solid #ddd;
+
+    padding: 12px 0;
+
+    margin-bottom: 5px;
+}
+
+
+.movimentacao p {
+
+    margin: 5px 0;
+
+    font-size: 14px;
+}
+
+
+.entrada {
+
+    color: #198754;
+
+    font-weight: bold;
+
+    font-size: 17px;
+}
+
+
+.saida {
+
+    color: #dc3545;
+
+    font-weight: bold;
+
+    font-size: 17px;
+}
+
+
+.mensagem {
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    main {
+
+        flex-direction: column;
+
+        max-width: 700px;
+    }
+
+
+    .card {
+
+        width: 100%;
+
+        min-height: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    main {
+
+        padding: 0 15px;
+
+        margin-top: 25px;
+    }
+
+
+    .card {
+
+        padding: 20px;
+    }
+
+
+    header h1 {
+
+        font-size: 24px;
+    }
+}

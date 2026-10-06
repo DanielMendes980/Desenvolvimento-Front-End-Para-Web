@@ -94,15 +94,26 @@
 
 
                 <!-- Categoria -->
-                <label for="categoria">
+                <label >
                     Categoria:
                 </label>
 
-                <input
-                    type="text"
-                    id="categoria"
-                    required
-                >
+
+                <select class="form-select" aria-label="Default select example" id="categoria" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="informatica">Informática</option>
+                        <option value="eletronicos">Eletrônicos</option>
+                        <option value="perifericos">Periféricos</option>
+                        <option value="celulares">Celulares</option>
+                        <option value="acessorios">Acessórios</option>
+                        <option value="moveis">Móveis</option>
+                        <option value="escritorio">Escritório</option>
+                        <option value="papelaria">Papelaria</option>
+                        <option value="limpeza">Limpeza</option>
+                        <option value="ferramentas">Ferramentas</option>
+                        <option value="vestuario">Vestuário</option>
+                        <option value="outros">Outros</option>
+                </select>
 
 
                 <!-- Preço -->
@@ -193,6 +204,10 @@
 
 
     </main>
+    <hr>
+        <p>
+            &copy; 2024 Controle de Estoque. Todos os direitos reservados.
+        </p>
 
 
     <!-- Conecta o JavaScript -->

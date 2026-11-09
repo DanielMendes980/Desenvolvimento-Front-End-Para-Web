@@ -11,6 +11,8 @@ const listaChamados = document.getElementById("listaChamados");
 // Pega a área onde o histórico será exibido
 const listaHistorico = document.getElementById("listaHistorico");
 
+const campoBusca = document.getElementById("busca");
+
 
 // =====================================================
 // LISTA DE PRODUTOS
@@ -179,6 +181,12 @@ function mostrarChamados() {
     // Percorre todos os produtos
     chamados.forEach(function(chamado, index) {
 
+        const textoBusca = campoBusca.value.toLowerCase();
+
+        if (!chamado.item.toLowerCase().includes(textoBusca)){
+            return;
+        }
+
 
         // Cria uma div para o produto
         const div = document.createElement("div");
@@ -214,83 +222,36 @@ function mostrarChamados() {
 
         // Coloca os dados na tela
         div.innerHTML = `
+    <div class="produto-icone">
+        <i class="fa-solid fa-cube"></i>
+    </div>
 
-            <h3>
-                Produto #${index + 1}
-            </h3>
+    <div class="produto-info">
+        <h3>Produto #${index + 1}</h3>
+        <p><strong>ID:</strong> ${chamado.id}</p>
+        <p><strong>Nome:</strong> ${chamado.item}</p>
+        <p><strong>Categoria:</strong> ${chamado.categoria}</p>
+        <p><strong>Preço:</strong> R$ ${chamado.preço.toFixed(2)}</p>
+        <p><strong>Quantidade:</strong> ${chamado.quantidade}</p>
+        <p><strong>Descrição:</strong> ${chamado.descrição}</p>
+        <p><strong>Valor em estoque:</strong> R$ ${valorEstoque.toFixed(2)}</p>
+        <p>
+            <strong>Status:</strong>
+            <span class="status ${classeStatus}">${chamado.status}</span>
+        </p>
+    </div>
 
-            <p>
-                <strong>ID:</strong>
-                ${chamado.id}
-            </p>
-
-            <p>
-                <strong>Nome:</strong>
-                ${chamado.item}
-            </p>
-
-            <p>
-                <strong>Categoria:</strong>
-                ${chamado.categoria}
-            </p>
-
-            <p>
-                <strong>Preço:</strong>
-                R$ ${chamado.preço.toFixed(2)}
-            </p>
-
-            <p>
-                <strong>Quantidade:</strong>
-                ${chamado.quantidade}
-            </p>
-
-            <p>
-                <strong>Descrição:</strong>
-                ${chamado.descrição}
-            </p>
-
-            <p>
-                <strong>Valor em estoque:</strong>
-                R$ ${valorEstoque.toFixed(2)}
-            </p>
-
-            <p>
-                <strong>Status:</strong>
-
-                <span class="status ${classeStatus}">
-                    ${chamado.status}
-                </span>
-
-            </p>
-
-
-            <div class="botoes">
-
-                <button
-                    class="btn-adicionar"
-                    onclick="adicionarProduto(${index})"
-                >
-                    + Adicionar
-                </button>
-
-
-                <button
-                    class="btn-retirar"
-                    onclick="retirarProduto(${index})"
-                >
-                    - Retirar
-                </button>
-
-
-                <button
-                    class="btn-excluir"
-                    onclick="excluirProduto(${index})"
-                >
-                    Excluir
-                </button>
-
-            </div>
-
+    <div class="botoes">
+        <button class="btn-adicionar" onclick="adicionarProduto(${index})">
+            <i class="fa-solid fa-plus"></i> Adicionar
+        </button>
+        <button class="btn-retirar" onclick="retirarProduto(${index})">
+            <i class="fa-solid fa-minus"></i> Retirar
+        </button>
+        <button class="btn-excluir" onclick="excluirProduto(${index})">
+            <i class="fa-solid fa-trash"></i> Excluir
+        </button>
+    </div>
         `;
 
 
@@ -591,6 +552,76 @@ function mostrarHistorico() {
 }
 
 
+
+campoBusca.addEventListener("input", mostrarChamados);
+
+
+// =====================================================
+// MENU (alternar entre Início e Cadastrar)
+// =====================================================
+
+
+const menus = document.querySelectorAll("[data-aba]");
+const secoes = document.querySelectorAll("[data-secao]");
+
+menus.forEach(menu => {
+    menu.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // Pega o nome da aba selecionada
+        const abaSelecionada = this.dataset.aba;
+
+        // Esconde todas as seções
+        secoes.forEach(secao => {
+            secao.classList.add("escondido");
+        });
+
+        // Remove o destaque de todos os menus
+        menus.forEach(item => {
+            item.classList.remove("ativo");
+        });
+
+        // Mostra somente a seção selecionada
+        document.querySelector(
+            `[data-secao="${abaSelecionada}"]`
+        ).classList.remove("escondido");
+
+        // Destaca o menu selecionado
+        this.classList.add("ativo");
+    });
+});
+  // Navegação: mostra somente a seção correspondente ao menu selecionado.
+        const menusAbas = document.querySelectorAll(".menu-item[data-aba]");
+        const secoesAbas = document.querySelectorAll("main [data-secao]");
+
+        menusAbas.forEach(function(menu) {
+            menu.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                const abaSelecionada = this.dataset.aba;
+
+                secoesAbas.forEach(function(secao) {
+                    secao.classList.add("escondido");
+                });
+
+                menusAbas.forEach(function(item) {
+                    item.classList.remove("ativo");
+                });
+
+                const secaoDestino = document.querySelector(
+                    'main [data-secao="' + abaSelecionada + '"]'
+                );
+
+                if (secaoDestino) {
+                    secaoDestino.classList.remove("escondido");
+                    this.classList.add("ativo");
+                }
+            });
+        });
+
+
+
+
 // =====================================================
 // INICIALIZAÇÃO
 // =====================================================
@@ -600,3 +631,4 @@ mostrarChamados();
 
 // Mostra o histórico quando o site abrir
 mostrarHistorico();
+

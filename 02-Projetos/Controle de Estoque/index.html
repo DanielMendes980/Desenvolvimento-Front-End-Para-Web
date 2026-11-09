@@ -15,8 +15,11 @@
     <!-- Ícone da loja -->
     <link rel="icon" href="assets/ChatGPT.png" type="image/png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <!-- Conecta o arquivo CSS -->
     <link rel="stylesheet" href="style.css">
+
 
 </head>
 
@@ -29,22 +32,19 @@
     ====================================================== -->
 
     <header>
+    <div class="header-esquerda">
+        <img src="assets/ChatGPT.png" alt="Logo da loja" class="logo">
+        <div>
+            <h1>Sistema de Controle de Estoque</h1>
+            <p>Bem-vindo ao sistema de controle de estoque!</p>
+        </div>
+    </div>
 
-        <!-- Logo da loja -->
-        <img
-            src="assets/ChatGPT.png"
-            alt="Logo da loja"
-            class="logo"
-        >
-
-        <!-- Título principal -->
-        <h1>Controle de Estoque</h1>
-
-        <!-- Descrição -->
-        <p>
-            Bem-vindo ao sistema de controle de estoque!
-        </p>
-
+    <div class="usuario">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>Usuário</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
     </header>
 
 
@@ -52,15 +52,79 @@
     <!-- =====================================================
          CONTEÚDO PRINCIPAL
     ====================================================== -->
+    <div class="layout">
+        <aside class="menu">
+        <p class="menu-titulo">MENU</p>
+
+        <a href="#secaoInicio" class="menu-item ativo" id="menuInicio" data-aba="inicio">
+            <i class="fa-solid fa-house"></i> Início
+        </a>
+
+        <a href="#secaoProdutos" class="menu-item" id="menuProdutos" data-aba="produtos">
+            <i class="fa-solid fa-cube"></i> Produtos
+        </a>
+
+        <a href="#secaoCadastro" class="menu-item" id="menuCadastrar" data-aba="cadastro">
+            <i class="fa-solid fa-circle-plus"></i> Cadastrar Produto
+        </a>
+
+        <a href="#secaoHistorico" class="menu-item" id="menuHistorico" data-aba="historico">
+            <i class="fa-solid fa-clock-rotate-left"></i> Histórico de Movimentação
+        </a>
+
+        <div class="menu-ajuda">
+            <a href="#" class="menu-item">
+                <i class="fa-regular fa-circle-question"></i> Ajuda
+            </a>
+        </div>
+    </aside>
 
     <main>
-
 
         <!-- =================================================
              CADASTRO DE PRODUTO
         ================================================== -->
 
-        <section class="card">
+        <section class="card" id="secaoInicio" data-secao="inicio">
+            <h2>Bem-vindo ao Controle de Estoque!</h2>
+            <section class="card" id="secaoInicio" data-secao="inicio">
+
+
+
+    <div class="resumo-estoque">
+
+
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-box"></i>
+            <h3>Produtos cadastrados</h3>
+            <p>Consulte seus produtos.</p>
+        </div>
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Controle de estoque</h3>
+            <p>Acompanhe as quantidades.</p>
+        </div>
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h3>Estoque baixo</h3>
+            <p>Identifique produtos acabando.</p>
+        </div>
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Movimentações</h3>
+            <p>Acompanhe entradas e saídas.</p>
+        </div>
+
+    </div>
+
+</section>
+        </section>
+
+        <section class="card escondido" id="secaoCadastro" data-secao="cadastro">
 
             <h2>Cadastrar Produto</h2>
 
@@ -94,26 +158,15 @@
 
 
                 <!-- Categoria -->
-                <label >
+                <label for="categoria">
                     Categoria:
                 </label>
 
-
-                <select class="form-select" aria-label="Default select example" id="categoria" required>
-                        <option value="">Selecione uma categoria</option>
-                        <option value="informatica">Informática</option>
-                        <option value="eletronicos">Eletrônicos</option>
-                        <option value="perifericos">Periféricos</option>
-                        <option value="celulares">Celulares</option>
-                        <option value="acessorios">Acessórios</option>
-                        <option value="moveis">Móveis</option>
-                        <option value="escritorio">Escritório</option>
-                        <option value="papelaria">Papelaria</option>
-                        <option value="limpeza">Limpeza</option>
-                        <option value="ferramentas">Ferramentas</option>
-                        <option value="vestuario">Vestuário</option>
-                        <option value="outros">Outros</option>
-                </select>
+                <input
+                    type="text"
+                    id="categoria"
+                    required
+                >
 
 
                 <!-- Preço -->
@@ -170,48 +223,53 @@
              LISTA DE PRODUTOS
         ================================================== -->
 
-        <section class="card">
+       <section class="card escondido" id="secaoProdutos" data-secao="produtos">
+    <div class="card-topo">
+        <h2><i class="fa-solid fa-cube"></i> Produtos</h2>
 
-            <h2>Produtos</h2>
+        <div class="busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="busca" placeholder="Pesquisar produto...">
+        </div>
+    </div>
 
-
-            <!-- Os produtos aparecem aqui -->
-            <div id="listaChamados"></div>
-
-        </section>
-
-
+    <div id="listaChamados"></div>
+</section>
 
         <!-- =================================================
              HISTÓRICO
         ================================================== -->
 
-        <section class="card">
+        <section class="card escondido" id="secaoHistorico" data-secao="historico">
+    <div class="card-topo">
+        <h2><i class="fa-regular fa-clock"></i> Histórico de Movimentação</h2>
+    </div>
 
-            <h2>Histórico de Produtos</h2>
-
-
-            <!-- As entradas e saídas aparecem aqui -->
-            <div id="listaHistorico">
-
-                <p>
-                    Nenhum produto no histórico.
-                </p>
-
-            </div>
-
+    <div id="listaHistorico">
+        <div class="vazio">
+            <i class="fa-regular fa-clock"></i>
+            <p>Nenhum produto no histórico.</p>
+        </div>
+    </div>
         </section>
 
 
     </main>
+
+    </div>
+
     <hr>
         <p>
-            &copy; 2024 Controle de Estoque. Todos os direitos reservados.
+            &copy; 2026 Controle de Estoque. Todos os direitos reservados.
         </p>
 
 
     <!-- Conecta o JavaScript -->
     <script src="script.js"></script>
+
+    <script>
+      
+    </script>
 
 </body>
 

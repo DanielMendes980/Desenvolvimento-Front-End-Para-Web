@@ -19,6 +19,9 @@
 
     <!-- Conecta o arquivo CSS -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .escondido { display: none !important; }
+    </style>
 
 </head>
 
@@ -55,19 +58,19 @@
         <aside class="menu">
         <p class="menu-titulo">MENU</p>
 
-        <a href="#" class="menu-item ativo" id="menuInicio">
+        <a href="#secaoInicio" class="menu-item ativo" id="menuInicio" data-aba="inicio">
             <i class="fa-solid fa-house"></i> Início
         </a>
 
-        <a href="#secaoProdutos" class="menu-item">
+        <a href="#secaoProdutos" class="menu-item" id="menuProdutos" data-aba="produtos">
             <i class="fa-solid fa-cube"></i> Produtos
         </a>
 
-        <a href="#" class="menu-item" id="menuCadastrar">
+        <a href="#secaoCadastro" class="menu-item" id="menuCadastrar" data-aba="cadastro">
             <i class="fa-solid fa-circle-plus"></i> Cadastrar Produto
         </a>
 
-        <a href="#secaoHistorico" class="menu-item">
+        <a href="#secaoHistorico" class="menu-item" id="menuHistorico" data-aba="historico">
             <i class="fa-solid fa-clock-rotate-left"></i> Histórico de Movimentação
         </a>
 
@@ -84,7 +87,48 @@
              CADASTRO DE PRODUTO
         ================================================== -->
 
-        <section class="card escondido" id="secaoCadastro">
+        <section class="card" id="secaoInicio" data-secao="inicio">
+            <h2>Início</h2>
+            <section class="card" id="secaoInicio" data-secao="inicio">
+
+    <h2>Bem-vindo ao Controle de Estoque!</h2>
+
+    <p>
+        Gerencie seus produtos de maneira simples e organizada.
+    </p>
+
+    <div class="resumo-estoque">
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-box"></i>
+            <h3>Produtos cadastrados</h3>
+            <p>Consulte seus produtos.</p>
+        </div>
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Controle de estoque</h3>
+            <p>Acompanhe as quantidades.</p>
+        </div>
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h3>Estoque baixo</h3>
+            <p>Identifique produtos acabando.</p>
+        </div>
+
+        <div class="resumo-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Movimentações</h3>
+            <p>Acompanhe entradas e saídas.</p>
+        </div>
+
+    </div>
+
+</section>
+        </section>
+
+        <section class="card escondido" id="secaoCadastro" data-secao="cadastro">
 
             <h2>Cadastrar Produto</h2>
 
@@ -183,7 +227,7 @@
              LISTA DE PRODUTOS
         ================================================== -->
 
-       <section class="card" id="secaoProdutos">
+       <section class="card escondido" id="secaoProdutos" data-secao="produtos">
     <div class="card-topo">
         <h2><i class="fa-solid fa-cube"></i> Produtos</h2>
 
@@ -200,7 +244,7 @@
              HISTÓRICO
         ================================================== -->
 
-        <section class="card" id="secaoHistorico">
+        <section class="card escondido" id="secaoHistorico" data-secao="historico">
     <div class="card-topo">
         <h2><i class="fa-regular fa-clock"></i> Histórico de Movimentação</h2>
     </div>
@@ -226,6 +270,37 @@
 
     <!-- Conecta o JavaScript -->
     <script src="script.js"></script>
+
+    <script>
+        // Navegação: mostra somente a seção correspondente ao menu selecionado.
+        const menusAbas = document.querySelectorAll(".menu-item[data-aba]");
+        const secoesAbas = document.querySelectorAll("main [data-secao]");
+
+        menusAbas.forEach(function(menu) {
+            menu.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                const abaSelecionada = this.dataset.aba;
+
+                secoesAbas.forEach(function(secao) {
+                    secao.classList.add("escondido");
+                });
+
+                menusAbas.forEach(function(item) {
+                    item.classList.remove("ativo");
+                });
+
+                const secaoDestino = document.querySelector(
+                    'main [data-secao="' + abaSelecionada + '"]'
+                );
+
+                if (secaoDestino) {
+                    secaoDestino.classList.remove("escondido");
+                    this.classList.add("ativo");
+                }
+            });
+        });
+    </script>
 
 </body>
 

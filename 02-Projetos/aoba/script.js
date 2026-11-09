@@ -560,23 +560,37 @@ campoBusca.addEventListener("input", mostrarChamados);
 // MENU (alternar entre Início e Cadastrar)
 // =====================================================
 
-const menuInicio = document.getElementById("menuInicio");
-const menuCadastrar = document.getElementById("menuCadastrar");
-const secaoCadastro = document.getElementById("secaoCadastro");
 
-menuCadastrar.addEventListener("click", function(event) {
-    event.preventDefault();
-    secaoCadastro.classList.remove("escondido");
-    menuCadastrar.classList.add("ativo");
-    menuInicio.classList.remove("ativo");
+const menus = document.querySelectorAll("[data-aba]");
+const secoes = document.querySelectorAll("[data-secao]");
+
+menus.forEach(menu => {
+    menu.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // Pega o nome da aba selecionada
+        const abaSelecionada = this.dataset.aba;
+
+        // Esconde todas as seções
+        secoes.forEach(secao => {
+            secao.classList.add("escondido");
+        });
+
+        // Remove o destaque de todos os menus
+        menus.forEach(item => {
+            item.classList.remove("ativo");
+        });
+
+        // Mostra somente a seção selecionada
+        document.querySelector(
+            `[data-secao="${abaSelecionada}"]`
+        ).classList.remove("escondido");
+
+        // Destaca o menu selecionado
+        this.classList.add("ativo");
+    });
 });
 
-menuInicio.addEventListener("click", function(event) {
-    event.preventDefault();
-    secaoCadastro.classList.add("escondido");
-    menuInicio.classList.add("ativo");
-    menuCadastrar.classList.remove("ativo");
-});
 
 
 
